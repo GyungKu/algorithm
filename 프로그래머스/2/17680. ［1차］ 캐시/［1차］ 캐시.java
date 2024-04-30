@@ -4,7 +4,7 @@ class Solution {
     public int solution(int cacheSize, String[] cities) {
         if (cacheSize == 0) return cities.length * 5;
         int answer = 0;
-        List<String> list = new LinkedList<>();
+        List<String> list = new ArrayList<>();
 
         for (int i = 0; i < cities.length; i++) {
             String s = cities[i].toLowerCase();
