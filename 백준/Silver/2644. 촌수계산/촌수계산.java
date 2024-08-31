@@ -28,26 +28,20 @@ public class Main {
 
         visited[x] = true;
         result[y] = -1;
-        bfs();
+        dfs(x);
         System.out.println(result[y]);
 
     }
 
 
-    static void bfs() {
-        Queue<Integer> queue = new LinkedList<>();
-        queue.offer(x);
-
-        while (!queue.isEmpty()) {
-            Integer cur = queue.poll();
-            for (int i = 1; i <= n; i++) {
-                if (!visited[i] && arr[cur][i] == 1) {
-                    visited[i] = true;
-                    result[i] = result[cur] + 1;
-                    queue.offer(i);
-                }
-            }
-        }
+    static void dfs(int cur) {
+       for (int i = 1; i <= n; i++) {
+           if (!visited[i] && arr[cur][i] == 1) {
+               visited[i] = true;
+               result[i] = result[cur] + 1;
+               dfs(i);
+           }
+       }
     }
 
 }
